@@ -27,7 +27,7 @@ public class AddressBook {
         System.out.println("Enter lastname : ");
         lastName = sc.nextLine();
         sb.append(lastName+ " ,");
-        System.out.println("Enter address : ");
+        System.out.println("Enter address and zip : ");
         address = sc.nextLine();
         sb.append(" Address : "+ address + " ,");
         System.out.println("Enter your city : ");
@@ -50,7 +50,7 @@ public class AddressBook {
         Scanner sf = new Scanner(System.in);
         boolean t = false;
         while ( t == false ){
-            System.out.println("Enter 1. To Add new contact.\n 7. To Exit. \n 2. To edit existing contact. You have to enter all data again now.\n 3. To see last added details.  \n");
+            System.out.println("Enter 1. To Add new contact.\n 2. To edit existing contact. You have to enter all data again now.\n 3. To see  added details of contact by First name key.  \n 4. To remove a contact. \n 7. To Exit Program. \n");
             int i = sf.nextInt();
             switch (i){
                 case 1:
@@ -66,11 +66,22 @@ public class AddressBook {
                     addressbook.replace(firstName, add);
                     break;
                 case 3:
-                    String details = addressbook.get(firstName);
-                    System.out.println(details);
+                    String show = getName();
+                    String details = addressbook.get(show);
+                    System.out.println(details +"\n \n " );
+                    break;
+                case 4:
+                    String del = getName();
+                    addressbook.remove(del);
                     break;
             }
         }
+    }
+    public String getName(){
+        Scanner sg = new Scanner(System.in);
+        System.out.println("Enter firstname key : ");
+        String Name = sg.nextLine();
+        return Name;
     }
 
 
