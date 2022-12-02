@@ -47,10 +47,10 @@ public class AddressBook {
     public void addressBook(){
         HashMap<String, String> addressbook = new HashMap<String, String>();
         String add ;
+        Scanner sf = new Scanner(System.in);
         boolean t = false;
         while ( t == false ){
-            System.out.println("Enter 1. To Add new contact. 7. To Exit.");
-            Scanner sf = new Scanner(System.in);
+            System.out.println("Enter 1. To Add new contact.\n 7. To Exit. \n 2. To edit existing contact. You have to enter all data again now.\n 3. To see last added details.  \n");
             int i = sf.nextInt();
             switch (i){
                 case 1:
@@ -60,7 +60,15 @@ public class AddressBook {
                 case 7 :
                     t = true;
                     break;
-
+                case 2:
+                    System.out.println("Enter first name of contact to edit : ");
+                    add = getAddress();
+                    addressbook.replace(firstName, add);
+                    break;
+                case 3:
+                    String details = addressbook.get(firstName);
+                    System.out.println(details);
+                    break;
             }
         }
     }
