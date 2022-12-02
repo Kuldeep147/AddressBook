@@ -1,11 +1,14 @@
 package com.bzl.addbook;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program.");
         AddressBook ob = new AddressBook();
+        ob.addressBook();
+
     }
     String firstName ;
     String lastName ;
@@ -41,5 +44,26 @@ public class AddressBook {
         sb.append("Email id : "+email+ " .");
         return sb.toString();
     }
+    public void addressBook(){
+        HashMap<String, String> addressbook = new HashMap<String, String>();
+        String add ;
+        boolean t = false;
+        while ( t == false ){
+            System.out.println("Enter 1. To Add new contact. 7. To Exit.");
+            Scanner sf = new Scanner(System.in);
+            int i = sf.nextInt();
+            switch (i){
+                case 1:
+                    add = getAddress();
+                    addressbook.put(firstName, add);
+                    break;
+                case 7 :
+                    t = true;
+                    break;
+
+            }
+        }
+    }
+
 
 }
