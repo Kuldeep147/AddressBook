@@ -6,8 +6,13 @@ import java.util.Scanner;
 public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program.");
-        AddressBook ob = new AddressBook();
-        ob.addressBook();
+        AddressBook addressBook1 = new AddressBook();
+        AddressBook addressBook2 = new AddressBook();
+        HashMap book = addressBook1.addressBook();
+        HashMap book1 = addressBook2.addressBook();
+        System.out.println(book);
+        System.out.println(book1);
+
 
     }
     String firstName ;
@@ -44,7 +49,7 @@ public class AddressBook {
         sb.append("Email id : "+email+ " .");
         return sb.toString();
     }
-    public void addressBook(){
+    public HashMap addressBook(){
         HashMap<String, String> addressbook = new HashMap<String, String>();
         String add ;
         Scanner sf = new Scanner(System.in);
@@ -79,6 +84,7 @@ public class AddressBook {
                     break;
             }
         }
+        return addressbook;
     }
     public String getName(){
         Scanner sg = new Scanner(System.in);
@@ -86,6 +92,4 @@ public class AddressBook {
         String Name = sg.nextLine();
         return Name;
     }
-
-
 }
